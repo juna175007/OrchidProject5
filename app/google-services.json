@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567569843891",
+    "project_id": "projectorch5",
+    "storage_bucket": "projectorch5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567569843891:android:83d240148a472721e852c6",
+        "android_client_info": {
+          "package_name": "com.example.orchidproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBDdEG_th7fNFpAw1zNtiuqTT3pA1W8-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

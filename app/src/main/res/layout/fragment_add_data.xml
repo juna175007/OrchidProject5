@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDataFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="ADD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Name..."
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
+            app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
+
+        <EditText
+            android:id="@+id/etPhoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:ems="10"
+            android:hint="PhoneNumber..."
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="@+id/etAddress"
+            app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Address..."
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="@+id/etEmailAddData"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailAddData" />
+
+        <EditText
+            android:id="@+id/etEmailAddData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="153dp"
+            android:ems="10"
+            android:hint="Email..."
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
