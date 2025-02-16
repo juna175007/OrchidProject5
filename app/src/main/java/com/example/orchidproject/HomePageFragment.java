@@ -54,9 +54,6 @@ public class HomePageFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        ImageView menuButton = findViewById(R.id.cart_icon); // ربط أيقونة الثلاث نقاط
-
-        menuButton.setOnClickListener(view);
     }
 
     @Override
