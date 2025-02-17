@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void gotoLoginFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout, new LogInFragment());
+        ft.replace(R.id.main, new LogInFragment());
         ft.commit();
     }
 

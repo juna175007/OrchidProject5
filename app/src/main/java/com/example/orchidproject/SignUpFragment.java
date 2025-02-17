@@ -81,7 +81,7 @@ public class SignUpFragment extends Fragment {
         fbs = FirebaseServices.getInstance();
         etEmail = getView().findViewById(R.id.etEmail);
         etPassword = getView().findViewById(R.id.etPassword);
-        btnSignup = getView().findViewById(R.id.btnSignupSignup);
+
         tvLogInLink=getView().findViewById(R.id.tvLogInLinkSignUp);
         tvLogInLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,17 +108,24 @@ public class SignUpFragment extends Fragment {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), " fields", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), " failure", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 });
+                gotoAddData();
 
             }
         });
     }
     private void gotoLogInFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout, new LogInFragment());
+        ft.replace(R.id.main, new LogInFragment());
         ft.commit();
     }
+    private void gotoAddData() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main, new AddDataFragment());
+        ft.commit();
+    }
+
 }
