@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -77,6 +78,7 @@ public class AddDataFragment extends Fragment {
     public void onStart() {
         super.onStart();
         connectComponents();
+
     }
     private void connectComponents() {
         fbs = FirebaseServices.getInstance();
@@ -113,7 +115,13 @@ public class AddDataFragment extends Fragment {
                         Log.e("Failure AddUser: ", e.getMessage());
                     }
                 });
+                gotoHomePageFragment();
             }
-            }
-        );
-}}
+
+
+        private void gotoHomePageFragment() {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main, new HomePageFragment());
+            ft.commit();
+        }
+}}}

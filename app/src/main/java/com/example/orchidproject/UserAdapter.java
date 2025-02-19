@@ -17,7 +17,9 @@ import java.util.ArrayList;
         ArrayList<User> userList;
         private FirebaseServices fbs;
 
-        public UserAdapter(Context context, ArrayList<User> restList) {
+
+
+        public UserAdapter(Context context, ArrayList<User> userList) {
             this.context = context;
             this.userList = userList;
             this.fbs = FirebaseServices.getInstance();
