@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 public class LogInFragment extends Fragment {
     private EditText etUsername , etPassword;
     private TextView tvSignupLink;
+    private TextView AddData;
     private Button btnLogin;
     private FirebaseServices fbs;
     private TextView ForgotPassword;
@@ -84,6 +85,14 @@ public class LogInFragment extends Fragment {
         etUsername = getView().findViewById(R.id.etUsernameLogin);
         etPassword = getView().findViewById(R.id.etPasswordLogin);
         btnLogin = getView().findViewById(R.id.btnLoginLogin);
+        AddData=getView().findViewById(R.id.AddData);
+        tvSignupLink = getView().findViewById(R.id.tvSignupLinkLogin);
+        AddData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoAddData();
+            }
+        });
         ForgotPassword = getView().findViewById(R.id.forgotpasswordlogin);
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,12 +103,11 @@ public class LogInFragment extends Fragment {
             };
 
         });
-        tvSignupLink = getView().findViewById(R.id.tvSignupLinkLogin);
+
         tvSignupLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoSignupFragment();
-
+          gotoSignupFragment();
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +132,7 @@ public class LogInFragment extends Fragment {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), " fields", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), " failure", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 });
@@ -137,10 +145,14 @@ public class LogInFragment extends Fragment {
         ft.replace(R.id.main, new ForgotPasswordFragment());
         ft.commit();
     }
-
     private void gotoSignupFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main, new SignUpFragment());
+        ft.commit();
+    }
+    private void gotoAddData() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main, new AddDataFragment());
         ft.commit();
     }
 

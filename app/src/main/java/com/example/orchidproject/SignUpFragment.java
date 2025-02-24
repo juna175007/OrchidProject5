@@ -79,9 +79,9 @@ public class SignUpFragment extends Fragment {
     public void onStart() {
         super.onStart();
         fbs = FirebaseServices.getInstance();
+        btnSignup=getView().findViewById(R.id.btnSignupSignup);
         etEmail = getView().findViewById(R.id.etEmail);
         etPassword = getView().findViewById(R.id.etPassword);
-
         tvLogInLink=getView().findViewById(R.id.tvLogInLinkSignUp);
         tvLogInLink.setOnClickListener(new View.OnClickListener() {
             @Override

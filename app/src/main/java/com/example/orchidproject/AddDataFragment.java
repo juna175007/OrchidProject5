@@ -25,8 +25,8 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class AddDataFragment extends Fragment {
     private FirebaseServices fbs;
-    private EditText etName, etEmail, etAddress, etPhone;
-    private Button btnAdd;
+    private EditText etName1,etemail1,etphone1,etaddress1;
+    private Button btnAd;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,48 +80,53 @@ public class AddDataFragment extends Fragment {
         connectComponents();
 
     }
+
     private void connectComponents() {
         fbs = FirebaseServices.getInstance();
-        etName = getView().findViewById(R.id.etName);
-        etEmail = getView().findViewById(R.id.etEmail);
-        etAddress = getView().findViewById(R.id.etAddress);
-        etPhone = getView().findViewById(R.id.etPhoneNum);
-        btnAdd = getView().findViewById(R.id.btnAdd);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        etName1= getView().findViewById(R.id.etName);
+      etemail1=getView().findViewById(R.id.etEmailAddData);
+        etaddress1= getView().findViewById(R.id.etAddress);
+        etphone1=getView().findViewById(R.id.etPhoneNum);
+        btnAd=getView().findViewById(R.id.btnAdd);
+        btnAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = etName.getText().toString();
-                String email = etEmail.getText().toString();
-                String address = etAddress.getText().toString();
-                String phone = etPhone.getText().toString();
+                String name = etName1.getText().toString();
+                String email =etemail1.getText().toString();
+                String address =etaddress1.getText().toString();
+                String phone = etphone1.getText().toString();
 
-                if (name.trim().isEmpty() || email.trim().isEmpty() ||
-                        address.trim().isEmpty() || phone.trim().isEmpty())
-                {
+                if (name.isEmpty() || email.isEmpty() ||
+                        address.isEmpty() || phone.isEmpty()) {
                     Toast.makeText(getActivity(), "Some fields are empty!", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                User user = new User(name, email, address, phone);
+                User user = new User(name,address,phone,email);
 
                 fbs.getFire().collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(), "Successfully added your user!", Toast.LENGTH_SHORT).show();
+                        gotoHomePageFragment();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.e("Failure AddUser: ", e.getMessage());
+                        Toast.makeText(getActivity(), "faild", Toast.LENGTH_SHORT).show();
+                        return;
                     }
                 });
-                gotoHomePageFragment();
+
             }
+        });
+    }
 
 
-        private void gotoHomePageFragment() {
-            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.main, new HomePageFragment());
-            ft.commit();
-        }
-}}}
+    private void gotoHomePageFragment() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main, new HomePageFragment());
+        ft.commit();
+    }
+
+}
