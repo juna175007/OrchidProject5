@@ -1,17 +1,21 @@
 package com.example.orchidproject;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +31,8 @@ public class AddDataFragment extends Fragment {
     private FirebaseServices fbs;
     private EditText etName1,etemail1,etphone1,etaddress1;
     private Button btnAd;
+    private ImageView img;
+    private static final int GALLARY_REQUEST_CODE=100;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -87,6 +93,17 @@ public class AddDataFragment extends Fragment {
       etemail1=getView().findViewById(R.id.etEmailAddData);
         etaddress1= getView().findViewById(R.id.etAddress);
         etphone1=getView().findViewById(R.id.etPhoneNum);
+        img = getView().findViewById(R.id.ProfilePic);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gallerIntent =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(gallerIntent,GALLARY_REQUEST_CODE);
+
+
+
+            }
+        });
         btnAd=getView().findViewById(R.id.btnAdd);
         btnAd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,5 +145,14 @@ public class AddDataFragment extends Fragment {
         ft.replace(R.id.main, new HomePageFragment());
         ft.commit();
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == GALLARY_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            img.setImageURI(selectedImageUri);
+            Utils.getInstance().uploadImage(getActivity(), selectedImageUri);
+        }
+    }
 }

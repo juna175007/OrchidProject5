@@ -12,84 +12,107 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="84dp"
-            android:src="@drawable/orchid"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/etPhoneNum" />
+            android:id="@+id/ProfilePic"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="142dp"
+            android:src="@drawable/profilepicture"
+            app:layout_constraintBottom_toTopOf="@+id/orch1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etEmailAddData"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="349dp"
-            android:layout_height="448dp"
-            android:layout_marginBottom="164dp"
+            android:id="@+id/orch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginBottom="-230dp"
+            android:src="@drawable/orchid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/etAddress"
+            app:layout_constraintTop_toBottomOf="@+id/ProfilePic" />
+
+        <ImageView
+            android:id="@+id/orch2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="-80dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="30dp"
             android:src="@drawable/orchid2"
-            app:layout_constraintBottom_toBottomOf="@+id/btnAdd"
+            app:layout_constraintBottom_toTopOf="@+id/etName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginBottom="218dp"
             android:backgroundTint="#2F3C1C"
             android:text="ADD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etName"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/etName"
             app:layout_constraintTop_toBottomOf="@+id/etName" />
 
         <EditText
             android:id="@+id/etName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="29dp"
             android:ems="10"
             android:hint="Email..."
             android:inputType="text"
             android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
             app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
-            app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
+            app:layout_constraintTop_toBottomOf="@+id/orch2" />
 
         <EditText
             android:id="@+id/etPhoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginEnd="116dp"
             android:ems="10"
             android:hint="PhoneNumber..."
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintStart_toStartOf="@+id/etAddress"
-            app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+            app:layout_constraintBottom_toBottomOf="@+id/orch2"
+            app:layout_constraintEnd_toEndOf="@+id/orch2" />
 
         <EditText
             android:id="@+id/etAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="24dp"
             android:ems="10"
             android:hint="Address..."
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintStart_toStartOf="@+id/etEmailAddData"
-            app:layout_constraintTop_toBottomOf="@+id/etEmailAddData" />
+            app:layout_constraintBottom_toTopOf="@+id/etPhoneNum"
+            app:layout_constraintEnd_toEndOf="@+id/orch2" />
 
         <EditText
             android:id="@+id/etEmailAddData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="153dp"
+            android:layout_marginEnd="116dp"
+            android:layout_marginBottom="28dp"
             android:ems="10"
             android:hint="Name..."
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/etAddress"
+            app:layout_constraintEnd_toEndOf="@+id/orch2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
