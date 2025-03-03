@@ -85,14 +85,9 @@ public class LogInFragment extends Fragment {
         etUsername = getView().findViewById(R.id.etUsernameLogin);
         etPassword = getView().findViewById(R.id.etPasswordLogin);
         btnLogin = getView().findViewById(R.id.btnLoginLogin);
-        AddData=getView().findViewById(R.id.AddData);
+
         tvSignupLink = getView().findViewById(R.id.tvSignupLinkLogin);
-        AddData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gotoAddData();
-            }
-        });
+
         ForgotPassword = getView().findViewById(R.id.forgotpasswordlogin);
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +122,7 @@ public class LogInFragment extends Fragment {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
-                        return;
+                        gotoAlldata();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -150,10 +145,11 @@ public class LogInFragment extends Fragment {
         ft.replace(R.id.main, new SignUpFragment());
         ft.commit();
     }
-    private void gotoAddData() {
+    private void gotoAlldata() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main, new AddDataFragment());
+        ft.replace(R.id.main, new AllUserFragment());
         ft.commit();
     }
+
 
 }

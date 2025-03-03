@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
     }
     protected void onStart() {
         super.onStart();
-        gotoLoginFragment();
+        gotoSignFragment();
     }
 
-    private void gotoLoginFragment() {
+    private void gotoSignFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main, new LogInFragment());
+        ft.replace(R.id.main, new SignUpFragment());
         ft.commit();
     }
 

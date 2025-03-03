@@ -30,7 +30,7 @@ import com.google.firebase.firestore.DocumentReference;
 public class AddDataFragment extends Fragment {
     private FirebaseServices fbs;
     private EditText etName1,etemail1,etphone1,etaddress1;
-    private Button btnAd;
+    private Button btnAdd1;
     private ImageView img;
     private static final int GALLARY_REQUEST_CODE=100;
     // TODO: Rename parameter arguments, choose names that match
@@ -104,8 +104,8 @@ public class AddDataFragment extends Fragment {
 
             }
         });
-        btnAd=getView().findViewById(R.id.btnAdd);
-        btnAd.setOnClickListener(new View.OnClickListener() {
+        btnAdd1=getView().findViewById(R.id.btnAdd);
+        btnAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = etName1.getText().toString();
@@ -125,12 +125,12 @@ public class AddDataFragment extends Fragment {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(), "Successfully added your user!", Toast.LENGTH_SHORT).show();
-                        gotoHomePageFragment();
+                        gotoAllData();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "faild", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "failed", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 });
@@ -143,6 +143,11 @@ public class AddDataFragment extends Fragment {
     private void gotoHomePageFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main, new HomePageFragment());
+        ft.commit();
+    }
+    private void gotoAllData() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main, new AllUserFragment());
         ft.commit();
     }
     @Override

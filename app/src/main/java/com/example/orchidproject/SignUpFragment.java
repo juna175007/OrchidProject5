@@ -103,7 +103,9 @@ public class SignUpFragment extends Fragment {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
+                        gotoAddData();
                         return;
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -112,7 +114,7 @@ public class SignUpFragment extends Fragment {
                         return;
                     }
                 });
-                gotoAddData();
+
 
             }
         });
